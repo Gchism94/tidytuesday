@@ -17,7 +17,7 @@ pacman::p_load(tidyverse,
 
 # Read in data
 haunted_places <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-10-10/haunted_places.csv')
-haunted_places |> glimpse()
+
 crs_use <- "+proj=laea +lat_0=30 +lon_0=-95"
 
 counts_city <- haunted_places |> 
@@ -35,7 +35,7 @@ counts_state <- haunted_places |>
   drop_na() |>
   group_by(state) |>
   summarise(count = as.numeric(n()))
-haunted_places |> View()
+
 coords <- haunted_places |> 
   filter(state_abbrev != "AK" & state_abbrev != "HI") |>
   rename(long = city_longitude, lat = city_latitude) |>
@@ -69,7 +69,8 @@ ggplot(usa_sf, aes(fill = count)) +
   labs(size = "Hauntings (city)",
        fill = "Hauntings (state)",
        title = "Supernatural States",
-       subtitle = "Eastern U.S. is the most haunted, but CA takes the prize") +
+       subtitle = "Eastern U.S. is the most haunted, but CA takes the prize",
+       caption = "Data: The Shadowlands Haunted Places Index | Viz: Greg Chism") +
   ggthemes::theme_map(base_family = "Supernatural Knight", base_size = 14) +
   theme(legend.position = c(0, 0),
         legend.justification = c(0, 0),
@@ -78,7 +79,8 @@ ggplot(usa_sf, aes(fill = count)) +
         plot.background = element_rect(fill = "black"),
         legend.background = element_rect(fill = "black"),
         legend.key = element_blank(),
-        plot.title = element_text(size = 20))
+        plot.title = element_text(size = 20),
+        plot.caption = element_text(size = 10))
 
 ggsave(plot = last_plot(), here("2023", "2023-10-10", "hauntedMap.png"), height = 9, width = 13, units = "in", dpi = 400)
 
