@@ -17,3 +17,5 @@ The making of this visualisation was also recorded using the {camcorder} package
 <img src="/2023/2023-10-27/20231031.gif" width="60%"/>
 
 </p>
+
+Inspired by Jenn Schilling's [Sentiment Analysis of Stranger Things Dialogue](https://github.com/jennschilling/tidytuesday-2022/tree/main/2022-10-18)
