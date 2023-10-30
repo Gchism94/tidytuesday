@@ -10,6 +10,7 @@ pacman::p_load(tidyverse,
                camcorder,
                ggtext,
                glue,
+               here,
                sysfonts,
                tidytext)
 
@@ -21,9 +22,9 @@ horror_articles <- tuesdata$horror_articles
 horror_articles |> glimpse()
 # Load fonts --------------------------------------------------------------
 
-font_add_google(name = "Roboto Mono")
+font_add_google(name = "Syne Mono")
 showtext_auto()
-family <- "Roboto Mono"
+family <- "Syne Mono"
 sysfonts::font_add(family = "Font Awesome 6 Brands",
                    regular = "path-to-font/Font-Awesome-6-Brands-Regular-400.otf")
 showtext::showtext_auto()
@@ -35,8 +36,8 @@ text_col <- "#F2F2F2"
 highlight_col <- "#FF1515"
 title_color <- "#FF1515"
 
-body_font <- "Roboto Mono"
-title_font <- "Roboto Mono"
+body_font <- "Syne Mono"
+title_font <- "Syne Mono"
 
 
 # Data wrangling ----------------------------------------------------------
@@ -153,15 +154,15 @@ ggplot(data = snopes_horror_claim_s,
   # coord_cartesian(expand = FALSE) +
   theme(axis.text = element_blank(),
         axis.ticks = element_blank(),
-        axis.title.y = element_text(size = 30, angle = 0, vjust = 1, hjust = 0,
+        axis.title.y = element_text(size = 40, angle = 0, vjust = 1, hjust = 0,
                                     color = text_col, family = family),
-        axis.title.x = element_text(size = 30, hjust = 0, 
+        axis.title.x = element_text(size = 40, hjust = 0, 
                                     color = text_col, family = family),
         
         strip.background = element_blank(),
-        strip.text.y.left = element_text(size = 35, angle = 0, vjust = 1,
+        strip.text.y.left = element_text(size = 40, angle = 0, vjust = 1,
                                          color = text_col, family = family),
-        strip.text.x = element_text(size = 35, color = text_col, 
+        strip.text.x = element_text(size = 40, color = text_col, 
                                     family = family),
         
         panel.grid = element_blank(),
@@ -172,13 +173,16 @@ ggplot(data = snopes_horror_claim_s,
         plot.title.position = "plot",
         plot.title = element_text(size = 70, color = title_color,
                                   lineheight = 0.3, face = "bold", family = family),
-        plot.subtitle = element_text(size = 20, color = text_col,
+        plot.subtitle = element_text(size = 40, color = text_col,
                                      lineheight = 0.3, face = "bold", family = family),
         plot.caption.position = "plot",
-        plot.caption = element_text(size = 20, color = text_col, 
+        plot.caption = element_text(size = 30, color = text_col, 
                                     lineheight = 0.3, hjust = 1, family = family),
         
         plot.margin = margin(10, 10, 10, 10))
+
+
+ggsave(plot = last_plot(), here("2023", "2023-10-31", "20231031.png"), height = 9, width = 13, units = "in", dpi = 400)
 
 
 # Save gif ----------------------------------------------------------------
@@ -190,3 +194,4 @@ gg_playback(
   frame_duration = .25,
   background = bg_col
 )
+
