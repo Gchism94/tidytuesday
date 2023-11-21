@@ -7,14 +7,9 @@ library(patchwork)
 library(camcorder)
 library(ggtext)
 library(glue)
-library(tigris)
 library(geofacet)
 library(scales)
-library(pracma)
-library(NISTunits)
 library(tidycensus)
-library(rmapshaper)
-library(waffle)
 library(here)
 
 options(tigris_use_cache = TRUE,
@@ -106,7 +101,7 @@ ggplot(house_clean, aes(x = party, y = proportion, fill = party)) +
   theme(legend.position = "none",
         plot.margin = unit(c(1, 1, 1, 1), unit = "cm"),
         plot.title = element_markdown(vjust = 5),
-        plot.subtitle = element_markdown(vjust = 1),
+        plot.subtitle = element_markdown(vjust = 1, lineheight = 1.25),
         plot.caption = element_markdown(),
         plot.background = element_rect(fill = bg_col, colour = bg_col),
         panel.background = element_rect(fill = bg_col, colour = bg_col))

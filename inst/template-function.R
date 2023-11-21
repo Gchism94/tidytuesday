@@ -72,4 +72,4 @@ use_tt_template <- function(date_chr = "yyyy-mm-dd",
   }
   message("Template successfully copied!")
 }
-use_tt_template(date_chr = "2023-11-07", readme = TRUE)
+use_tt_template(date_chr = "2023-11-14", readme = TRUE)
