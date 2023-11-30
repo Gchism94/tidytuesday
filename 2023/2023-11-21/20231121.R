@@ -110,14 +110,14 @@ plot <- combined_data |>
 
 logo <- png::readPNG(here("2023", "2023-11-21", "images", "logo.png"), native = TRUE)
 
-plot + 
+plot_1 <- plot + 
   inset_element(logo,
                 left = 0.9,
                 bottom = 0.89,
                 right = 1,
                 top = 1.80,
                 on_top = FALSE)
-
+plot_1
 ggsave(plot = plot, here("2023", "2023-11-21", "20231121.png"),
        height = 5, width = 7, units = "in", dpi = 300)
 
