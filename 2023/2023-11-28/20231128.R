@@ -152,7 +152,7 @@ data |>
         plot.title.position = "plot")
 
 
-ggsave(plot = last_plot(), here("2023", "2023-11-28", "20231121.png"),
+ggsave(plot = last_plot(), here("2023", "2023-11-28", "20231128.png"),
        height = 7, width = 8, units = "in", dpi = 300)
 
 # Save gif ----------------------------------------------------------------
